@@ -1,0 +1,6 @@
+# Ignore Terraform local plugin cache and generated files (local plugins, lockfile, state, crash logs)
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+crash.log
