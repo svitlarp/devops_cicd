@@ -78,7 +78,7 @@ resource "aws_eip" "nat_ecs_b" {
 # nat subnet_ecs_a
 resource "aws_nat_gateway" "ecs_a" {
   allocation_id = aws_eip.nat_ecs_a.id
-  subnet_id     = aws_subnet.alb_a.id  # Public subnet
+  subnet_id     = aws_subnet.alb_a.id # Public subnet
 
   tags = {
     Name = var.nat_ecs_a_name
@@ -89,7 +89,7 @@ resource "aws_nat_gateway" "ecs_a" {
 # nat subnet_ecs_b
 resource "aws_nat_gateway" "ecs_b" {
   allocation_id = aws_eip.nat_ecs_b.id
-  subnet_id     = aws_subnet.alb_b.id   # Public subnet
+  subnet_id     = aws_subnet.alb_b.id # Public subnet
 
   tags = {
     Name = var.nat_ecs_b_name

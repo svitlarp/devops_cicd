@@ -102,11 +102,16 @@ variable "rt_private_ecs_cidr" {
   description = "CIDR block for Route Table ECS"
 }
 
-
-
-
 # security group
+variable "sg_alb" {
+  type        = string
+  description = "Security Group for Application Load Balancer"
+}
 
+variable "sg_ecs" {
+  type        = string
+  description = "Security Group for Elascic Container Service"
+}
 
 
 

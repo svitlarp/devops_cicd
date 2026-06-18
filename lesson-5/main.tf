@@ -26,11 +26,21 @@ module "vpc" {
   subnet_ecs_b_cidr = var.subnet_ecs_b_cidr
   subnet_ecs_b_az   = var.subnet_ecs_b_az
 
+  # IGW, NAT
   igw_alb_name   = var.igw_alb_name
   nat_ecs_a_name = var.nat_ecs_a_name
   nat_ecs_b_name = var.nat_ecs_b_name
 
+  # Route Tables
   rt_public_alb_cidr  = var.rt_public_alb_cidr
   rt_private_ecs_cidr = var.rt_private_ecs_cidr
+
+  # Security Groups
+  sg_alb = var.sg_alb
+  sg_ecs = var.sg_ecs
 }
 
+module "ecr" {
+  source   = "./modules/ecr"
+  ecr_name = var.ecr_name
+}

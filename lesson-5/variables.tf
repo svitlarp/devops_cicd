@@ -109,11 +109,19 @@ variable "rt_private_ecs_cidr" {
 }
 
 
-
-
 # security group
+variable "sg_alb" {
+  type        = string
+  description = "Security Group for Application Load Balancer"
+}
 
+variable "sg_ecs" {
+  type        = string
+  description = "Security Group for Elascic Container Service"
+}
 
-
-
-
+# ECR
+variable "ecr_name" {
+  type        = string
+  description = "Name for the Elascic Container Regestry"
+}
