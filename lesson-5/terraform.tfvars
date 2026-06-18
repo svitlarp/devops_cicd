@@ -38,3 +38,9 @@ sg_ecs = "lesson-5-sg-ecs"
 
 # ECR
 ecr_name = "lesson-5-ecr"
+
+# S3 terraform state
+s3_bucket_name = "lesson5-s3-tfstate"
+
+# DynamoDB terraform state
+dynamo_db_table_name = "lesson5-dynamodb-tfstate"

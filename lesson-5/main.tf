@@ -2,6 +2,13 @@ provider "aws" {
   region = var.aws_region
 }
 
+module "s3" {
+  source = "./modules/s3-backend"
+
+  s3_bucket_name       = var.s3_bucket_name
+  dynamo_db_table_name = var.dynamo_db_table_name
+}
+
 module "vpc" {
   source = "./modules/vpc"
 
