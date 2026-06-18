@@ -1,5 +1,7 @@
 ## Terraform structure for the infrastructure on AWS 
 
+![Watch demo video](https://drive.google.com/file/d/1uBkscMfDd1pVEd6qxEStOuz8YhRJEIi6/view?usp=sharing)
+
 
 1. Synchronization of state files in S3 using DynamoDB for locking.
 
