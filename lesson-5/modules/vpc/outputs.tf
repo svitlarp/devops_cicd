@@ -15,14 +15,14 @@ output "subnet_alb_b_id" {
   value       = aws_subnet.alb_b.id
 }
 
-output "subnet_ecs_a_id" {
-  description = "The ID of the subnet subnet_ecs_a"
-  value       = aws_subnet.ecs_a.id
+output "subnet_eks_a_id" {
+  description = "The ID of the subnet subnet_eks_a"
+  value       = aws_subnet.eks_a.id
 }
 
-output "subnet_ecs_b_id" {
-  description = "The ID of the subnet subnet_ecs_b"
-  value       = aws_subnet.ecs_b.id
+output "subnet_eks_b_id" {
+  description = "The ID of the subnet subnet_eks_b"
+  value       = aws_subnet.eks_b.id
 }
 
 # Internet Gateway
@@ -32,25 +32,25 @@ output "igw_alb_id" {
 }
 
 # Elastic IPs
-output "eip_ecs_a" {
+output "eip_eks_a" {
   description = "The ID of the EIP for private subnet a"
-  value       = aws_eip.nat_ecs_a.id
+  value       = aws_eip.nat_eks_a.id
 }
 
-output "eip_ecs_b" {
+output "eip_eks_b" {
   description = "The ID of the EIP for private subnet b"
-  value       = aws_eip.nat_ecs_b.id
+  value       = aws_eip.nat_eks_b.id
 }
 
 # NAT gateway
-output "nat_ecs_a_id" {
-  description = "The ID of the NAT Gateway for ECS"
-  value       = aws_nat_gateway.ecs_a.id
+output "nat_eks_a_id" {
+  description = "The ID of the NAT Gateway for eks"
+  value       = aws_nat_gateway.eks_a.id
 }
 
-output "nat_ecs_b_id" {
-  description = "The ID of the NAT Gateway for ECS"
-  value       = aws_nat_gateway.ecs_b.id
+output "nat_eks_b_id" {
+  description = "The ID of the NAT Gateway for eks"
+  value       = aws_nat_gateway.eks_b.id
 }
 
 # Route tables
@@ -59,14 +59,14 @@ output "rt_public_alb_id" {
   value       = aws_route_table.public_alb.id
 }
 
-output "rt_private_ecs_a_id" {
-  description = "The ID of route table ECS a"
-  value       = aws_route_table.private_ecs_a.id
+output "rt_private_eks_a_id" {
+  description = "The ID of route table eks a"
+  value       = aws_route_table.private_eks_a.id
 }
 
-output "rt_private_ecs_b_id" {
-  description = "The ID of route table ECS b"
-  value       = aws_route_table.private_ecs_b.id
+output "rt_private_eks_b_id" {
+  description = "The ID of route table eks b"
+  value       = aws_route_table.private_eks_b.id
 }
 
 # Security Groups
@@ -75,7 +75,7 @@ output "sg_alb" {
   value       = aws_security_group.alb.id
 }
 
-output "sg_ecs" {
-  description = "The ID security group ECS"
-  value       = aws_security_group.ecs.id
+output "sg_eks" {
+  description = "The ID security group eks"
+  value       = aws_security_group.eks.id
 }

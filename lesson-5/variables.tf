@@ -47,36 +47,36 @@ variable "subnet_alb_b_az" {
   description = "Avialability zones for public subnet_alb_b"
 }
 
-# subnet_ecs_a
-variable "subnet_ecs_a_name" {
+# subnet_eks_a
+variable "subnet_eks_a_name" {
   type        = string
-  description = "Name Tag for private subnet subnet_ecs_a"
+  description = "Name Tag for private subnet subnet_eks_a"
 }
 
-variable "subnet_ecs_a_cidr" {
+variable "subnet_eks_a_cidr" {
   type        = string
-  description = "CIDR block for private subnet subnet_ecs_a"
+  description = "CIDR block for private subnet subnet_eks_a"
 }
 
-variable "subnet_ecs_a_az" {
+variable "subnet_eks_a_az" {
   type        = string
-  description = "Avialability zones for private subnet_ecs_a"
+  description = "Avialability zones for private subnet_eks_a"
 }
 
-# subnet_ecs_b
-variable "subnet_ecs_b_name" {
+# subnet_eks_b
+variable "subnet_eks_b_name" {
   type        = string
-  description = "Name Tag for private subnet subnet_ecs_b"
+  description = "Name Tag for private subnet subnet_eks_b"
 }
 
-variable "subnet_ecs_b_cidr" {
+variable "subnet_eks_b_cidr" {
   type        = string
-  description = "CIDR block for private subnet subnet_ecs_b"
+  description = "CIDR block for private subnet subnet_eks_b"
 }
 
-variable "subnet_ecs_b_az" {
+variable "subnet_eks_b_az" {
   type        = string
-  description = "Avialability zones for private subnet_ecs_b"
+  description = "Avialability zones for private subnet_eks_b"
 }
 
 # internet gateway
@@ -86,12 +86,12 @@ variable "igw_alb_name" {
 }
 
 # NAT gateway
-variable "nat_ecs_a_name" {
+variable "nat_eks_a_name" {
   type        = string
   description = "NAT for ALB 1a"
 }
 
-variable "nat_ecs_b_name" {
+variable "nat_eks_b_name" {
   type        = string
   description = "NAT for ALB 1b"
 }
@@ -103,9 +103,9 @@ variable "rt_public_alb_cidr" {
   description = "CIDR block for Route Table ALB"
 }
 
-variable "rt_private_ecs_cidr" {
+variable "rt_private_eks_cidr" {
   type        = string
-  description = "CIDR block for Route Table ECS"
+  description = "CIDR block for Route Table eks"
 }
 
 
@@ -115,7 +115,7 @@ variable "sg_alb" {
   description = "Security Group for Application Load Balancer"
 }
 
-variable "sg_ecs" {
+variable "sg_eks" {
   type        = string
   description = "Security Group for Elascic Container Service"
 }

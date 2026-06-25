@@ -30,28 +30,29 @@ resource "aws_subnet" "alb_b" {
   }
 }
 
-# subnet_ecs_a 
-resource "aws_subnet" "ecs_a" {
+# subnet_eks_a 
+resource "aws_subnet" "eks_a" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = var.subnet_ecs_a_cidr
-  availability_zone = var.subnet_ecs_a_az
+  cidr_block        = var.subnet_eks_a_cidr
+  availability_zone = var.subnet_eks_a_az
 
   tags = {
-    Name = var.subnet_ecs_a_name
+    Name = var.subnet_eks_a_name
   }
 }
 
-# subnet_ecs_b 
-resource "aws_subnet" "ecs_b" {
+# subnet_eks_b 
+resource "aws_subnet" "eks_b" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = var.subnet_ecs_b_cidr
-  availability_zone = var.subnet_ecs_b_az
+  cidr_block        = var.subnet_eks_b_cidr
+  availability_zone = var.subnet_eks_b_az
 
   tags = {
-    Name = var.subnet_ecs_b_name
+    Name = var.subnet_eks_b_name
   }
 }
 
+# subnet_eks_b 
 
 # igw
 resource "aws_internet_gateway" "alb" {
@@ -63,36 +64,36 @@ resource "aws_internet_gateway" "alb" {
 }
 
 # EIPs
-# eip nat ecs_a
-resource "aws_eip" "nat_ecs_a" {
+# eip nat eks_a
+resource "aws_eip" "nat_eks_a" {
   domain = "vpc"
-  tags   = { Name = "${var.nat_ecs_a_name}-eip" }
+  tags   = { Name = "${var.nat_eks_a_name}-eip" }
 }
 
-# eip nat ecs_b
-resource "aws_eip" "nat_ecs_b" {
+# eip nat eks_b
+resource "aws_eip" "nat_eks_b" {
   domain = "vpc"
-  tags   = { Name = "${var.nat_ecs_b_name}-eip" }
+  tags   = { Name = "${var.nat_eks_b_name}-eip" }
 }
 
-# nat subnet_ecs_a
-resource "aws_nat_gateway" "ecs_a" {
-  allocation_id = aws_eip.nat_ecs_a.id
+# nat subnet_eks_a
+resource "aws_nat_gateway" "eks_a" {
+  allocation_id = aws_eip.nat_eks_a.id
   subnet_id     = aws_subnet.alb_a.id # Public subnet
 
   tags = {
-    Name = var.nat_ecs_a_name
+    Name = var.nat_eks_a_name
   }
   depends_on = [aws_internet_gateway.alb]
 }
 
-# nat subnet_ecs_b
-resource "aws_nat_gateway" "ecs_b" {
-  allocation_id = aws_eip.nat_ecs_b.id
+# nat subnet_eks_b
+resource "aws_nat_gateway" "eks_b" {
+  allocation_id = aws_eip.nat_eks_b.id
   subnet_id     = aws_subnet.alb_b.id # Public subnet
 
   tags = {
-    Name = var.nat_ecs_b_name
+    Name = var.nat_eks_b_name
   }
   depends_on = [aws_internet_gateway.alb]
 }
@@ -108,22 +109,22 @@ resource "aws_route_table" "public_alb" {
 
 }
 
-resource "aws_route_table" "private_ecs_a" {
+resource "aws_route_table" "private_eks_a" {
   vpc_id = aws_vpc.main.id
 
   route {
-    cidr_block     = var.rt_private_ecs_cidr
-    nat_gateway_id = aws_nat_gateway.ecs_a.id
+    cidr_block     = var.rt_private_eks_cidr
+    nat_gateway_id = aws_nat_gateway.eks_a.id
   }
 
 }
 
-resource "aws_route_table" "private_ecs_b" {
+resource "aws_route_table" "private_eks_b" {
   vpc_id = aws_vpc.main.id
 
   route {
-    cidr_block     = var.rt_private_ecs_cidr
-    nat_gateway_id = aws_nat_gateway.ecs_b.id
+    cidr_block     = var.rt_private_eks_cidr
+    nat_gateway_id = aws_nat_gateway.eks_b.id
   }
 
 }
@@ -139,13 +140,13 @@ resource "aws_route_table_association" "alb_b" {
   route_table_id = aws_route_table.public_alb.id
 }
 
-resource "aws_route_table_association" "ecs_a" {
-  subnet_id      = aws_subnet.ecs_a.id
-  route_table_id = aws_route_table.private_ecs_a.id
+resource "aws_route_table_association" "eks_a" {
+  subnet_id      = aws_subnet.eks_a.id
+  route_table_id = aws_route_table.private_eks_a.id
 }
 
-resource "aws_route_table_association" "ecs_b" {
-  subnet_id      = aws_subnet.ecs_b.id
-  route_table_id = aws_route_table.private_ecs_b.id
+resource "aws_route_table_association" "eks_b" {
+  subnet_id      = aws_subnet.eks_b.id
+  route_table_id = aws_route_table.private_eks_b.id
 }
 
