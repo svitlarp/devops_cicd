@@ -122,6 +122,11 @@ variable "nat_eks_b_name" {
   description = "NAT for ALB 1b"
 }
 
+variable "nat_eks_c_name" {
+  type        = string
+  description = "NAT for ALB 1c"
+}
+
 
 # route table_name
 variable "rt_public_alb_cidr" {

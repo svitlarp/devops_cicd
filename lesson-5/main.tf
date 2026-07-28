@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 # Connecting S3 module
-module "s3" {
+module "s3-backend" {
   source = "./modules/s3-backend"
 
   s3_bucket_name       = var.s3_bucket_name
@@ -59,6 +59,7 @@ module "vpc" {
   igw_alb_name   = var.igw_alb_name
   nat_eks_a_name = var.nat_eks_a_name
   nat_eks_b_name = var.nat_eks_b_name
+  nat_eks_c_name = var.nat_eks_c_name
 
   # Route Tables
   rt_public_alb_cidr  = var.rt_public_alb_cidr
@@ -73,5 +74,4 @@ module "vpc" {
 module "ecr" {
   source   = "./modules/ecr"
   ecr_name = var.ecr_name
-  scan_on_push = true
 }

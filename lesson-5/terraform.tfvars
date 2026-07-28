@@ -37,6 +37,7 @@ igw_alb_name = "igw-public-alb"
 # nat 
 nat_eks_a_name = "nat-private-eks-a"
 nat_eks_b_name = "nat-private-eks-b"
+nat_eks_c_name = "nat-private-eks-c"
 
 # route tables 
 rt_public_alb_cidr  = "0.0.0.0/0"

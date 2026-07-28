@@ -30,6 +30,17 @@ resource "aws_subnet" "alb_b" {
   }
 }
 
+# subnet_alb_c 
+resource "aws_subnet" "alb_c" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.subnet_alb_c_cidr
+  availability_zone = var.subnet_alb_c_az
+
+  tags = {
+    Name = var.subnet_alb_c_name
+  }
+}
+
 # subnet_eks_a 
 resource "aws_subnet" "eks_a" {
   vpc_id            = aws_vpc.main.id
@@ -52,7 +63,16 @@ resource "aws_subnet" "eks_b" {
   }
 }
 
-# subnet_eks_b 
+# subnet_eks_c 
+resource "aws_subnet" "eks_c" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.subnet_eks_c_cidr
+  availability_zone = var.subnet_eks_c_az
+
+  tags = {
+    Name = var.subnet_eks_c_name
+  }
+}
 
 # igw
 resource "aws_internet_gateway" "alb" {
