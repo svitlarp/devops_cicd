@@ -15,6 +15,11 @@ output "subnet_alb_b_id" {
   value       = aws_subnet.alb_b.id
 }
 
+output "subnet_alb_c_id" {
+  description = "The ID of the subnet subnet_alb_c"
+  value       = aws_subnet.alb_c.id
+}
+
 output "subnet_eks_a_id" {
   description = "The ID of the subnet subnet_eks_a"
   value       = aws_subnet.eks_a.id
@@ -23,6 +28,11 @@ output "subnet_eks_a_id" {
 output "subnet_eks_b_id" {
   description = "The ID of the subnet subnet_eks_b"
   value       = aws_subnet.eks_b.id
+}
+
+output "subnet_eks_c_id" {
+  description = "The ID of the subnet subnet_eks_c"
+  value       = aws_subnet.eks_c.id
 }
 
 # Internet Gateway

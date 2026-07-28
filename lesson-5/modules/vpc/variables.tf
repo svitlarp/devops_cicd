@@ -41,6 +41,22 @@ variable "subnet_alb_b_az" {
   description = "Avialability zones for public subnet_alb_b"
 }
 
+# subnet_alb_c
+variable "subnet_alb_c_name" {
+  type        = string
+  description = "Name Tag for public subnet subnet_alb_c"
+}
+
+variable "subnet_alb_c_cidr" {
+  type        = string
+  description = "CIDR block for public subnet subnet_alb_c"
+}
+
+variable "subnet_alb_c_az" {
+  type        = string
+  description = "Avialability zones for public subnet_alb_c"
+}
+
 # subnet_eks_a
 variable "subnet_eks_a_name" {
   type        = string
@@ -71,6 +87,22 @@ variable "subnet_eks_b_cidr" {
 variable "subnet_eks_b_az" {
   type        = string
   description = "Avialability zones for private subnet_eks_b"
+}
+
+# subnet_eks_c
+variable "subnet_eks_c_name" {
+  type        = string
+  description = "Name Tag for private subnet subnet_eks_c"
+}
+
+variable "subnet_eks_c_cidr" {
+  type        = string
+  description = "CIDR block for private subnet subnet_eks_c"
+}
+
+variable "subnet_eks_c_az" {
+  type        = string
+  description = "Avialability zones for private subnet_eks_c"
 }
 
 # internet gateway

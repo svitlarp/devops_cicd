@@ -1,25 +1,35 @@
 aws_region = "eu-north-1"
 
 # vpc
-vpc_name = "lesson5-tf"
-vpc_cidr = "10.1.0.0/16"
+vpc_name = "lesson5-vpc"
+vpc_cidr = "10.0.0.0/16"
 
 # subnets
+# public subnets
 subnet_alb_a_name = "subnet-public-alb-1a"
-subnet_alb_a_cidr = "10.1.0.0/25"
+subnet_alb_a_cidr = "10.0.1.0/24"
 subnet_alb_a_az   = "eu-north-1a"
 
 subnet_alb_b_name = "subnet-public-alb-1b"
-subnet_alb_b_cidr = "10.1.0.128/25"
+subnet_alb_b_cidr = "10.0.2.0/24"
 subnet_alb_b_az   = "eu-north-1b"
 
+subnet_alb_c_name = "subnet-public-alb-1b"
+subnet_alb_c_cidr = "10.0.3.0/24"
+subnet_alb_c_az   = "eu-north-1c"
+
+# private subnets
 subnet_eks_a_name = "subnet-private-eks-1a"
-subnet_eks_a_cidr = "10.1.1.0/25"
+subnet_eks_a_cidr = "10.0.4.0/24"
 subnet_eks_a_az   = "eu-north-1a"
 
 subnet_eks_b_name = "subnet-private-eks-1b"
-subnet_eks_b_cidr = "10.1.1.128/25"
+subnet_eks_b_cidr = "10.0.5.0/24"
 subnet_eks_b_az   = "eu-north-1b"
+
+subnet_eks_c_name = "subnet-private-eks-1c"
+subnet_eks_c_cidr = "10.0.6.0/24"
+subnet_eks_c_az   = "eu-north-1c"
 
 # igw
 igw_alb_name = "igw-public-alb"
