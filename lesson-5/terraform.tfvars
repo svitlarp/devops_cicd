@@ -55,3 +55,12 @@ s3_bucket_name = "lesson5-s3-tfstate"
 
 # DynamoDB terraform state
 dynamo_db_table_name = "lesson5-dynamodb-tfstate"
+
+# EKS 
+# Cluster
+eks_cluster_name = "lesson-7-eks"
+eks_cluster_iam_role_name = "lesson-7-eks-iam-role"
+
+# Node group
+eks_node_group_name = "lesson7-node-gr"
+eks_node_group_iam_role_name = "eks-node-gr-iam"

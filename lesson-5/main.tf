@@ -75,3 +75,18 @@ module "ecr" {
   source   = "./modules/ecr"
   ecr_name = var.ecr_name
 }
+
+# Connecting EKS module
+module "eks" {
+  source   = "./modules/eks"
+  eks_cluster_name = var.eks_cluster_name
+  eks_cluster_iam_role_name = var.eks_cluster_iam_role_name
+  eks_node_group_name = var.eks_node_group_name
+  eks_node_group_iam_role_name = var.eks_node_group_iam_role_name
+
+  subnet_ids = [
+    module.vpc.subnet_eks_a_id,
+    module.vpc.subnet_eks_b_id,
+    module.vpc.subnet_eks_c_id
+  ]
+}

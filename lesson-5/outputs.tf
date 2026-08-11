@@ -17,3 +17,26 @@ output "ecr_repository_url" {
   description = "The URL of ECR repository"
   value       = module.ecr.ecr_url
 }
+
+# EKS Cluster
+output "eks_cluster_name" {
+  description = "The Name of EKS cluster"
+  value       = module.eks.eks_cluster_name
+}
+
+output "eks_cluster_iam_role_name" {
+  description = "The Name of EKS Cluster IAM Role"
+  value       = module.eks.eks_cluster_iam_role_name
+}
+
+# EKS Node Group
+output "eks_node_group_name" {
+  description = "The Name of EKS Node Group"
+  value       = module.eks.eks_node_group_name
+}
+
+output "eks_node_group_iam_role_name" {
+  description = "The Name of EKS Cluster IAM Role"
+  value       = module.eks.eks_node_group_iam_role_name
+}
+
