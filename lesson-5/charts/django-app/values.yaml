@@ -1,0 +1,37 @@
+# image defins the docker image for the Django Application
+image:
+# image.repository is the container registry path to the Django image
+  repository: your-registry/your-django-image
+  # repository: 123456789.dkr.ecr.eu-central-1.amazonaws.com/django-app
+  # image.tag is the version tag of the Django image to deploy
+  tag: "1.0.0"
+  # image.pullPolicy determines when Kubernetes pulls the image (Always, IfNotPresent, Never)
+  pullPolicy: IfNotPresent
+
+  
+# service defines the Kubernetes Service configuration for exposing the application
+service:
+  # service.type is the Kubernetes Service type used to expose the application (e.g. LoadBalancer, ClusterIP)
+  type: LoadBalancer
+  # service.port is the external port the Service listens on
+  port: 80
+  # service.targetPort is the container port that traffic is forwared to
+  targetPort: 8000
+
+# ingress defines optional Ingress configuration for the application
+ingress:
+  # ingress.enabled controls whether an Ingress resource is created
+  enabled: false
+
+# postgres defines the connection settings for the PostgreSQL database
+postgres:
+  # postgres.host is the hostname or service name of the PostgreSQL database
+  host: "postgres"
+  # postgres.port is the hostname  of the PostgreSQL db
+  port: "5432"
+  # postgres.db is the name of the PostgreSQL database
+  db: "djangodb"
+  # postgres.user is the database username for the PostgreSQL db
+  user: "django"
+  # postgres.passwd is the password for the PostgreSQL database user
+  passwd: "your-password"
